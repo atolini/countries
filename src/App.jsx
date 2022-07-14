@@ -4,6 +4,7 @@ import GlobalStyle from "./components/design/GlobalStyle";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { GlobalProvider } from "./context/GlobalProvider";
+import Header from "./components/header/Header";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ function App() {
       <Theme>
         <GlobalStyle />
         <GlobalProvider>
+          <Header />
           <Home />
         </GlobalProvider>
       </Theme>
