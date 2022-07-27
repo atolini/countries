@@ -5,21 +5,36 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { GlobalProvider } from "./context/GlobalProvider";
 import Header from "./components/header/Header";
+import { Router, Outlet, ReactLocation } from "@tanstack/react-location";
 
 const queryClient = new QueryClient();
+const location = new ReactLocation();
+
+const routes = [
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "*",
+    element: <h1>404</h1> 
+  }
+];
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Theme>
-        <GlobalStyle />
-        <GlobalProvider>
-          <Header />
-          <Home />
-        </GlobalProvider>
-      </Theme>
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    <Router routes={routes} location={location}>
+      <QueryClientProvider client={queryClient}>
+        <Theme>
+          <GlobalStyle />
+          <GlobalProvider>
+            <Header />
+            <Outlet />
+          </GlobalProvider>
+        </Theme>
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </Router>
   );
 }
 

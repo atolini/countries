@@ -14,13 +14,30 @@ function useFetch() {
   const queryClient = useQueryClient();
 
   //Requisition Function
-  const reqAllCountries = () => axios.get(process.env.REACT_APP_ALL_COUNTRIES);
+  const reqAllCountries = () => axios.get("https://restcountries.com/v3.1/all");
 
   //Cache settings object
   const defaultCacheSettings = {
     cacheTime: Infinity,
     staleTime: Infinity,
   };
+
+  //
+  const transformData = (array) => {
+    createPaginateArr(array)
+    return generateID(array)
+  }
+  
+  //Function to generate id for countries
+  const generateID = (array) => {
+    let id = 0; 
+
+    return array.map((element) => {
+      let res = element.id = id; 
+      id++
+      return res
+    })
+  }
 
   //Function createPaginateArr
   const createPaginateArr = (array) => {
@@ -38,7 +55,7 @@ function useFetch() {
 
   //React Query
   return useQuery("allCountries", reqAllCountries, {
-    select: (data) => createPaginateArr(data.data),
+    select: (data) => transformData(data.data),
     ...defaultCacheSettings,
   });
 }

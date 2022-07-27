@@ -28,7 +28,7 @@ Sucess.parameters = {
         ctx.set('Context-Length', image.byteLength.toString()), 
         ctx.set('Content-Type', 'image/png'),
         ctx.body(image),
-        ctx.delay(3000), 
+        ctx.delay(8000), 
         ctx.status(200),
       )
     })
@@ -46,7 +46,7 @@ Error.args = {
 Error.parameters = {
   msw: [
     rest.get('https://flagcdn.com/w320/bg.png', async (req, res, ctx) => {
-      return res(ctx.status(403), ctx.delay(3000))
+      return res(ctx.status(403), ctx.delay(8000))
     })
   ],
 }

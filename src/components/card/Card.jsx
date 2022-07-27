@@ -16,11 +16,11 @@ function getInternalUrl(data) {
   return internalUrl;
 }
 
-function Card({ flagUrl, commonName, population, region, capital }) {
+function Card({ flagUrl, commonName, population, region, capital, id }) {
   let image;
 
   const { status, data } = useQuery(
-    ["flag", flagUrl],
+    [id, flagUrl],
     () => fetchFlag(flagUrl),
     {
       select: (data) => getInternalUrl(data),

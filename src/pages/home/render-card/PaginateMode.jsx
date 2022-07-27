@@ -15,7 +15,8 @@ function PaginateRenderCardMode({ hasNextPage, nextPage, data }) {
         {data.map((element) => {
           return (
             <Card
-              key={element.name.common}
+              key={element.id}
+              id={element.id}
               flagUrl={element.flags.png}
               commonName={element.name.common}
               population={element.population}

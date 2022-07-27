@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/static/js/main.a42c8efd.js",
+    "index.html": "/index.html",
+    "static/media/moon-light.svg": "/static/media/moon-light.02e5534a97c1d1a2b06a7fef06747e2a.svg",
+    "static/media/moon-dark.svg": "/static/media/moon-dark.670e6a67ecc8d90e33a3df6ea301cb89.svg",
+    "main.a42c8efd.js.map": "/static/js/main.a42c8efd.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a42c8efd.js"
+  ]
+}
